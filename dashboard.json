@@ -1,0 +1,133 @@
+{
+    "widgets": [
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 2,
+            "width": 5,
+            "height": 4,
+            "properties": {
+                "metrics": [
+                    [ { "expression": "(m2/m1)*100", "label": "Overal Success %", "id": "e1", "region": "us-east-1" } ],
+                    [ "AWS/Lambda", "Invocations", "FunctionName", "eventHandlerS3", { "id": "m1", "region": "us-east-1", "visible": false } ],
+                    [ "FinancePipeline", "SuccessfulMigrations", { "id": "m2", "region": "us-east-1", "visible": false } ]
+                ],
+                "sparkline": true,
+                "view": "singleValue",
+                "region": "us-east-1",
+                "stat": "Sum",
+                "period": 60,
+                "title": "MigrationSuccess"
+            }
+        },
+        {
+            "type": "alarm",
+            "x": 0,
+            "y": 0,
+            "width": 5,
+            "height": 2,
+            "properties": {
+                "title": "Error Alarm",
+                "alarms": [
+                    "arn:aws:cloudwatch:us-east-1:452202271068:alarm:Migration_error_detected_alarm"
+                ]
+            }
+        },
+        {
+            "type": "metric",
+            "x": 5,
+            "y": 0,
+            "width": 4,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/DynamoDB", "SuccessfulRequestLatency", "TableName", "FinanceMigrationLogs", "Operation", "PutItem", { "region": "us-east-1", "label": "DynamoDB latency" } ]
+                ],
+                "view": "gauge",
+                "region": "us-east-1",
+                "stat": "Average",
+                "period": 60,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 50
+                    }
+                },
+                "setPeriodToTimeRange": false,
+                "sparkline": true,
+                "title": "",
+                "annotations": {
+                    "horizontal": [
+                        {
+                            "color": "#b2df8d",
+                            "label": "Within minimal threshold",
+                            "value": 15,
+                            "fill": "above"
+                        },
+                        {
+                            "color": "#d62728",
+                            "label": "Above threshold range",
+                            "value": 25,
+                            "fill": "above"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 0,
+            "width": 4,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/S3", "BucketSizeBytes", "BucketName", "leesh-financedb-migration-2026", "StorageType", "StandardStorage", { "label": "S3 BuketSize" } ]
+                ],
+                "view": "bar",
+                "region": "us-east-1",
+                "stat": "Average",
+                "period": 604800,
+                "title": ""
+            }
+        },
+        {
+            "type": "metric",
+            "x": 13,
+            "y": 0,
+            "width": 4,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Lambda", "Duration", "FunctionName", "eventHandlerS3", { "label": "LambdaRun Duration" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-east-1",
+                "stat": "Average",
+                "period": 60,
+                "title": ""
+            }
+        },
+        {
+            "type": "log",
+            "x": 0,
+            "y": 6,
+            "width": 17,
+            "height": 5,
+            "properties": {
+                "query": "SOURCE '/aws/lambda/eventHandlerS3' | fields @timestamp, @message\n| filter @message like /(?i)logs recorded/\n| sort @timestamp desc\n| limit 10",
+                "queryLanguage": "CWLI",
+                "queryBy": "logGroupName",
+                "logGroupPrefixes": {
+                    "accountIds": [],
+                    "logGroupPrefix": [],
+                    "logClass": "STANDARD"
+                },
+                "region": "us-east-1",
+                "title": "Log group: /aws/lambda/eventHandlerS3",
+                "view": "table"
+            }
+        }
+    ]
+}
