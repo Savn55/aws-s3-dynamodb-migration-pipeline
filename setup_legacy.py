@@ -38,7 +38,7 @@ try:
     # 3. Create the Schema (3 Tables with Relationships)
     cursor.execute(f"USE [{db_name}];")
 
-    '''
+
     cursor.execute("""
         CREATE TABLE Clients (ClientID INT PRIMARY KEY, Name NVARCHAR(100), Country NVARCHAR(50));
         CREATE TABLE Products (ProductID INT PRIMARY KEY, ProductName NVARCHAR(100), Price DECIMAL(10,2));
@@ -66,7 +66,7 @@ try:
 
     print("✅ Successfully populated 3 tables with relationships!")
     conn.close()
-'''
+
 except Exception as e:
     print(f"❌ Connection failed: {e}")
 
