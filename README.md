@@ -4,7 +4,7 @@
 ## Why I Build 🏛️
 After successfully acheiving 🚀**AWS CERTIFIED SOLUTION ARCHITECT ASSOCIATE** certification, I want to implement my knowledge in building practical projects. But where should I start?🤔 \
 \
-Recently, my organization has been migrating many application and databases to Google Cloud Platform (GCP). I find this as a perfect real world scenario for me to build this project where I will be migrating a SQL SERVER DB tables from LEGACY system to the AWS Cloud. 
+Recently, my organization has been migrating many application and databases to Google Cloud Platform (GCP). I find this as a perfect real world scenario for me to build this project where I will be migrating a ***SQL SERVER DB*** tables from LEGACY system to the AWS Cloud. 
 This project is my hands-on take on an event-driven migration pipeline. It’s serverless, it’s fast, and most importantly, it’s monitored so I don't have to guess if it's working.
 
 ## What I Built🏗️ 
@@ -12,15 +12,15 @@ I built a pipeline that moves financial records from an on-premise Docker setup 
 
 ### The Tech Stack
 
-- Source: SQL Server running in Docker (Legacy vibes).
+- Source: SQL Server running in Docker (Legacy vibes). 📳
 
-- IAM: Roles for Lambda (Access Control).
-
-- Storage: Amazon S3 (The landing zone).
+- IAM: Roles for Lambda (Access Control). 
+  
+- Storage:🌲 Amazon S3 (The landing zone).
 
 - Compute: AWS Lambda (The "brain" of the operation).
 
-- Database: Amazon DynamoDB (The metadata destination).
+- Database: Amazon DynamoDB (The metadata destination). 🚗
 
 - Observability: CloudWatch Dashboards, Metric Filters, and SNS 
 
@@ -45,26 +45,32 @@ I built a pipeline that moves financial records from an on-premise Docker setup 
   
   📊 Dashboard: A one-stop shop to see my success rates, latency, and logs.
 
+
+<img width="900" height="664" alt="image" src="https://github.com/user-attachments/assets/50016246-0b0c-4e42-8b8f-df54f682910d" />
+
+
 ### Lessons Learned
 
 - Metric Math 📖 is cool: Figuring out how to display a "dynamoDB latency" gauge on the dashboard was a fun challenge.
 
 - Cold 🥶 Starts: Understanding how Lambda wakes up when that S3 event hits was a great deep dive into serverless behavior.
 
-### How to Run This
-- Check the /infrastructure folder for the dashboard.json if you want to replicate my monitoring setup!
+### How to Run This 🏃‍♂️🏃‍♂️
+- Check the /infrastructure folder for the dashboard.json if you want to replicate 📜 my monitoring setup!
 
-- Clone the repo.
+- Clone 🌀 the repo.
 
-- Set up your S3 bucket triggers.
+- Set up your S3 bucket 🪣 triggers. 
 
-- Deploy the Lambda code in /src. 
+- Deploy the Lambda code in /src. 🐊
 
 - Upload a CSV to S3 and watch the dashboard light up. 📈
 
 ### Improvements 🦾🦾🦾
-- After some research around my solution, I found that I could have added S3 ObjectKey in DynamoDB so I could quickly setup Athena for querying S3 and scale up as well.
+- After some research around my solution, I found that I could have added S3 ObjectKey 🔑 in DynamoDB so I could quickly setup *️⃣ Athena for querying S3 and scale up as well.
 - Add Lambda Destination SQS to capture any failure event and error trace so we can review and fix the issue.
 
-***What's Next?***
-I’m planning on implementing Infrastructure as Code (Terraform) to a AI integrated solution architecture. If you have suggestions or want to talk AWS, feel free to reach out!
+***What's Next?*** ➡️➡️➡️
+I’m planning on implementing Infrastructure 🌉 as Code (Terraform) to a AI integrated solution architecture. If you have suggestions or want to talk AWS, feel free to reach out! 🌃
+
+
