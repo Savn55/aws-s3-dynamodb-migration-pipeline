@@ -25,7 +25,7 @@ I built a pipeline that moves financial records from an on-premise Docker setup 
 - Observability: CloudWatch Dashboards, Metric Filters, and SNS 
 
 ### The Architecture 📐 
-<img width="981" height="591" alt="image" src="https://github.com/user-attachments/assets/e3cd1349-1643-4a99-bca6-5adba4c724ed" />
+[<img width="981" height="591" alt="image" src="https://github.com/user-attachments/assets/e3cd1349-1643-4a99-bca6-5adba4c724ed" />](https://github.com/Savn55/aws-s3-dynamodb-migration-pipeline/blob/main/images/aws-event-driven-arch.png)
 <i>draw.io for the diagram</i>
 
 ***
@@ -46,7 +46,7 @@ I built a pipeline that moves financial records from an on-premise Docker setup 
   📊 Dashboard: A one-stop shop to see my success rates, latency, and logs.
 
 
-<img width="900" height="664" alt="image" src="https://github.com/user-attachments/assets/50016246-0b0c-4e42-8b8f-df54f682910d" />
+[<img width="900" height="664" alt="image" src="https://github.com/user-attachments/assets/50016246-0b0c-4e42-8b8f-df54f682910d" />](https://github.com/Savn55/aws-s3-dynamodb-migration-pipeline/blob/main/images/dashboard_img.png)
 
 
 ### Lessons Learned
@@ -56,15 +56,15 @@ I built a pipeline that moves financial records from an on-premise Docker setup 
 - Cold 🥶 Starts: Understanding how Lambda wakes up when that S3 event hits was a great deep dive into serverless behavior.
 
 ### How to Run This 🏃‍♂️🏃‍♂️
-- Check the /infrastructure folder for the dashboard.json if you want to replicate 📜 my monitoring setup!
+- Check the /infr folder for the dashboard.json if you want to replicate 📜 my monitoring setup!
 
 - Clone 🌀 the repo.
 
 - Set up your S3 bucket 🪣 triggers. 
 
-- Deploy the Lambda code in /src. 🐊
+- Deploy the Lambda code in /infra. 🐊
 
-- Upload a CSV to S3 and watch the dashboard light up. 📈
+- Upload a CSV to S3 🚨and watch the dashboard light up. 📈
 
 ### Improvements 🦾🦾🦾
 - After some research around my solution, I found that I could have added S3 ObjectKey 🔑 in DynamoDB so I could quickly setup *️⃣ Athena for querying S3 and scale up as well.
